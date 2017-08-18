@@ -1,0 +1,11 @@
+---
+- replace:
+    dest: /etc/pam.d/su
+    regexp: '^#auth\s+sufficient\s+pam_wheel.so trust use_uid$'
+    replace: 'auth sufficient pam_wheel.so trust use_uid'
+    backup: True
+- replace:
+    dest: /etc/sudoers
+    regexp: '^# %wheel\s+ALL=\(ALL\)\s+NOPASSWD: ALL$'
+    replace: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    backup: True
